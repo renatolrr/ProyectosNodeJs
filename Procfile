@@ -1,1 +1,1 @@
-web: node ./quiz/bin/www
+web: node ./bin/www

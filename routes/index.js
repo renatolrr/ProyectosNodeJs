@@ -13,7 +13,7 @@ router.get('/quizes/answer', quizController.answer);
 
 //Autor
 router.get('/author', function(req, res) {
-res.render('author', {errors: []});
+res.render('author', { title: 'Autor' });
 });
 
 module.exports = router;

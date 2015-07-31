@@ -14,6 +14,7 @@ var storage  = process.env.DATABASE_STORAGE;
 
 // Cargar Modelo ORM
 var Sequelize = require('sequelize');
+
 // Usar BBDD SQLite o Postgres
 var sequelize = new Sequelize(DB_name, user, pwd, 
   { dialect:  protocol,
@@ -30,7 +31,7 @@ var sequelize = new Sequelize(DB_name, user, pwd,
 var quiz_path = path.join(__dirname,'quiz');
 var Quiz = sequelize.import(quiz_path);
 
-exports.Quiz=Quiz;
+exports.Quiz=Quiz;//exporta definicion de la tabla Qiuz
 
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function() {

@@ -1,9 +1,22 @@
 var models = require('../models/models.js');
+
+//Autoload 
+exports.load = function(req,res,nextmquizId){
+	models.Quiz.find(quizId).then(
+		if(quiz){
+			req.quiz =quiz;
+			next()}
+		}else{
+			next(new Error('No existe quizID='+quizID));}
+	}
+	).catch(function(error){next(error);});
+};
 //GET /quizes
 exports.index = function(req, res) {  
   models.Quiz.findAll().then(function(quizes) {
       res.render('quizes/index.ejs', {quizes: quizes});
-    })
+    }
+    ).catch(function(error){next(error);})
 };
 
 // GET /quizes/:id

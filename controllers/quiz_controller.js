@@ -1,7 +1,7 @@
 var models = require('../models/models.js');
 
 //Autoload 
-exports.load = function(req,res,nextmquizId){
+exports.load = function(req,res,next,quizId){
 	models.Quiz.find(quizId).then(
 		if(quiz){
 			req.quiz =quiz;
@@ -21,21 +21,18 @@ exports.index = function(req, res) {
 
 // GET /quizes/:id
 exports.show = function(req, res) {
-	models.Quiz.find(req,params,quizId).then(function(quiz){  
-	res.render('quizes/show', { quiz: quiz});
-     })
+//	models.Quiz.find(req,params,quizId).then(function(quiz){  
+	res.render('quizes/show', { quiz: req.quiz});
+//     })
 };       
 
 // GET /quizes/:id/answer
 exports.answer = function(req, res) {
-	models.Quiz.find(req,params,quizId).then(function(quiz){  
-		if (req.query.respuesta === quiz.respuesta) {
-   			res.render('quizes/answer', 
-				{ quiz: quiz, respuesta: "Correcto"});
-		}else{
-			res.render('quizes/answer', 
-				{ quiz: quiz, respuesta: "Incorrecto"}); 
-      		}
-  	})
+	var resultado='Incorrecto';
+		if (req.query.respuesta === req.quiz.respuesta) {
+   			resultado= "Correcto";
+		}
+			res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado}); 
+				
 };
 

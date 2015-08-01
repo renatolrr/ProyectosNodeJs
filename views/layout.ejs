@@ -26,18 +26,12 @@
       <span><a href="/author">Autor(créditos)</a></span>
    </nav>
 
-   <section class="main" id="s1">
-    <% if(errors.length) { %>
-      <span id='ErrorMsgs'>
-        Corregir errores:<br/>
-        <% for (var i in errors) { %>
-           <span> <%= errors[i].message %> </span><br/>
-        <% } %>
-      </span>
-    <% } %>
 
-    <div><%- body %></div>
-  </section>
+  
+  <section class="main" id="s1">
+   <%- body%>
+   </section>
+   
    <footer class="main" id="f1">
      <a href="https://github.com/renatolrr/ProyectosNodeJs">
        Repositorio del proyecto.</a>

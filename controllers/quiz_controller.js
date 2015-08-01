@@ -19,7 +19,7 @@ exports.index = function(req, res) {
 	function(quizes) {
       res.render('quizes/index.ejs', {quizes: quizes, errors: []});
     }
-    ).catch(function(error){next(error)})
+    ).catch(function(error){next(error)});
 };
 
 // GET /quizes/:id
@@ -64,10 +64,10 @@ exports.create = function(req, res) {
 					if(err){
 						res.render('quizes/new' , {quiz: quiz, errors: err.errors});
 					}else{
-						
-						//guarda en BD los campos pregunta y respuesta quiz
-						quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
-						res.redirect('/quizes')})
+					//guarda en BD los campos pregunta y respuesta quiz
+						quiz
+						.save({fields: ["pregunta","respuesta"]})
+						.then(function(){res.redirect('/quizes')})
 						} //Redireccion Http (url relativo) lista de preguntas
 					}
 				);

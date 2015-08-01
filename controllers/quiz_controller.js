@@ -47,3 +47,11 @@ exports.new = function(req, res) {
 				
 };
 
+// GET /quizes/create
+exports.create = function(req, res) {
+	var quiz= models.Quiz.build( req.body.quiz);
+	//guarda en BD los campos pregunta y respuesta quiz
+	quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
+		res.redirect('/quizes');
+		}) //Redireccion Http (url relativo) lista de preguntas
+};

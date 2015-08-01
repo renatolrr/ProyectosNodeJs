@@ -3,9 +3,10 @@ var models = require('../models/models.js');
 //Autoload 
 exports.load = function(req,res,next,quizId){
 	models.Quiz.find(quizId).then(
-		if(quiz){
+		function(quiz){
+			if(quiz){
 			req.quiz =quiz;
-			next()}
+			next();
 		}else{
 			next(new Error('No existe quizID='+quizID));}
 	}

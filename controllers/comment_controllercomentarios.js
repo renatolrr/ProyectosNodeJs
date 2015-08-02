@@ -1,4 +1,5 @@
-// Autoload :id de comentarios
+// Autoload :id de comentarios solamente crea la función
+
 exports.load = function(req, res, next, commentId) {
   models.Comment.find({
             where: {
@@ -12,7 +13,6 @@ exports.load = function(req, res, next, commentId) {
     }
   ).catch(function(error){next(error)});
 };
-
 
 
 // GET /quizes/:quizId/comments/new

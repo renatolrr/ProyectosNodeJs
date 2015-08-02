@@ -1,5 +1,14 @@
-# quiz-2015
-Proyecto de CORE 2015 y @NodeMOOC  
-Probando el proyecto completo de Quemada.
+# ProyectosNodeJs
+Proyectos Node Js MiriadaX Quiz  
+Renato Luis Ramirez Rivero
 
-Aumentando autor y cambiando favicon.
+Despliegue en heroku
+
+
+Problemas con base de datos en Heroku.
+
+https://safe-sea-9682.herokuapp.com/
+
+https://github.com/renatolrr/ProyectosNodeJs
+
+Falta quiz 19 HTTPS, pendiente base de datos.

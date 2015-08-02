@@ -1,18 +1,18 @@
 var models = require('../models/models.js');
 
-//Autoload 
-exports.load = function(req,res,next,quizId){
-	models.Quiz.find(quizId).then(
-		function(quiz){
-			if(quiz){
-				req.quiz =quiz;
-				next();
-		}else{
-			next(new Error('No existe quizID='+quizID))}
-	}
-	).catch(function(error){next(error)});
+//Autoload  :id
+exports.load = function(req, res, next, quizId) {
+  models.Quiz.find({
+            where: {id: Number(quizId)},
+            include: [{model: models.Comment}]
+        }).then(function(quiz) {
+      if (quiz) {
+        req.quiz = quiz;
+        next();
+      } else{next(new Error('No existe quizId=' + quizId))}
+    }
+  ).catch(function(error){next(error)});
 };
-
 //GET /quizes
 exports.index = function(req, res) {  
   models.Quiz.findAll().then(

@@ -11,4 +11,5 @@ https://safe-sea-9682.herokuapp.com/
 
 https://github.com/renatolrr/ProyectosNodeJs
 
-Falta quiz 19 HTTPS, pendiente base de datos.
+Problemas con la base de datos en Heroku.
+Está vacia o no conecta.
